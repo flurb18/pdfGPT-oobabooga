@@ -135,7 +135,7 @@ def ui():
 
         btn.click(
             gather_interface_values,
-            inputs=[gradio(list_interface_input_elements())],
+            inputs=gradio(list_interface_input_elements()),
             outputs=state
         ).then(
             ask,
@@ -144,7 +144,7 @@ def ui():
         )
         question.submit(
             gather_interface_values,
-            inputs=[gradio(list_interface_input_elements())],
+            inputs=gradio(list_interface_input_elements()),
             outputs=state
         ).then(
             generate_answer,
