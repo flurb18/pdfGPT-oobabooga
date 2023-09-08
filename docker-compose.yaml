@@ -1,15 +1,21 @@
-version: '3'
-
+version: "3"
 services:
-  langchain-serve:
-    build:
-      context: . 
-      target: langchain-serve-img
+  text-generation-webui-pdfGPT:
+    image: text-generation-webui-pdfGPT:latest # you must build this yourself first
+    container_name: text-generation-webui-pdfGPT
+    environment:
+      - EXTRA_LAUNCH_ARGS="--listen --verbose --extensions pdfGPT-oobabooga"
     ports:
-      - '8080:8080'
-  pdf-gpt:
-    build:
-      context: . 
-      target: pdf-gpt-img
-    ports:
-      - '7860:7860'
+      - 7860:7860  # Default web port
+#      - 5000:5000  # Default API port
+#      - 5005:5005  # Default streaming port
+#      - 5001:5001  # Default OpenAI API extension port
+    volumes:
+#     - /some/folder:/app/models to persist models
+    deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: nvidia
+                device_ids: ['0']
+                capabilities: [gpu]
