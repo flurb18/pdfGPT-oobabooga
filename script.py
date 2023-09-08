@@ -138,7 +138,7 @@ def ui():
             inputs=gradio(list_interface_input_elements()),
             outputs=state
         ).then(
-            ask,
+            generate_answer,
             inputs=[question, state],
             outputs=[answer]
         )
