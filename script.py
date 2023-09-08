@@ -116,7 +116,11 @@ def generate_answer(question, state):
         Ignore outlier search results which has nothing to do with the question. Only answer what is asked.
         The answer should be short and concise. Answer step-by-step.\n\n"""
     prompt += f"Query: {question}\nAnswer:"
-    answer = generate_reply(prompt, state)
+    for a in generate_reply(prompt, state):
+        if isinstance(a, str):
+            answer = a
+        else:
+            answer = a[0]
     return answer
 
 def ui():
