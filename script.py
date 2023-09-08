@@ -12,7 +12,7 @@ from modules.utils import gradio
 recommender = None
 
 params = {
-    "display_name" : "pdfGPT-oobabooga",
+    "display_name" : "pdfGPT_oobabooga",
     "is_tab" : True
 }
 
