@@ -4,7 +4,7 @@ services:
     image: text-generation-webui-pdfGPT:latest # you must build this yourself first
     container_name: text-generation-webui-pdfGPT
     environment:
-      - EXTRA_LAUNCH_ARGS="--listen --verbose --extensions pdfGPT-oobabooga"
+      - EXTRA_LAUNCH_ARGS="--listen --verbose --extensions pdfGPT_oobabooga"
     ports:
       - 7860:7860  # Default web port
 #      - 5000:5000  # Default API port
